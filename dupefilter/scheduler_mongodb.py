@@ -113,18 +113,16 @@ class MongoDBScheduler(BaseDupeFilter):
 
 if __name__ == "__main__":
     import mongomock
-    from dupefilter.tests.test_basic import test_scheduler
+    from dupefilter.tests.test_basic import (
+        BasicTestSchdueler,
+        validate_schduler_implement,
+    )
 
     def test():
-        class Scheduler(MongoDBScheduler):
-
-            def user_hash_input(self, data):
-                return str(data["value"])
-
-            def user_process(self, data):
-                return data["value"] * 1000
+        class Scheduler(BasicTestSchdueler, MongoDBScheduler):
+            pass
 
         scheduler = Scheduler(collection=mongomock.MongoClient().db.collection)
-        test_scheduler(scheduler)
+        validate_schduler_implement(scheduler)
 
     test()

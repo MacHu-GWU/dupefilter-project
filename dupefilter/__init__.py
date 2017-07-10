@@ -14,3 +14,8 @@ try:
     from .scheduler_mongodb import MongoDBScheduler
 except:
     pass
+
+__all__ = [
+    "SqliteDictScheduler",
+    "MongoDBScheduler",
+]

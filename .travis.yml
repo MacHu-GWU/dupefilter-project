@@ -7,6 +7,8 @@ python:
 install:
   - pip install . # Install it self
   - pip install --upgrade pytest # Upgrade pytest to lastest
+  - pip install mongomock
+  - pip install pymongo
 script: py.test
 notifications:
   slack:

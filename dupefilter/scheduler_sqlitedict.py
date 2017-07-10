@@ -114,19 +114,15 @@ class SqliteDictScheduler(BaseDupeFilter):
 
 
 if __name__ == "__main__":
-    from dupefilter.tests.test_basic import test_scheduler
+    from dupefilter.tests.test_basic import (
+        BasicTestSchdueler, validate_schduler_implement
+    )
 
     def test():
-        class Scheduler(SqliteDictScheduler):
+        class Scheduler(BasicTestSchdueler, SqliteDictScheduler):
             user_db_path = ":memory:"
 
-            def user_hash_input(self, data):
-                return str(data["value"])
-
-            def user_process(self, data):
-                return data["value"] * 1000
-
         scheduler = Scheduler()
-        test_scheduler(scheduler)
+        validate_schduler_implement(scheduler)
 
     test()

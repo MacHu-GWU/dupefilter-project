@@ -14,7 +14,6 @@ import logging
 from logging.handlers import RotatingFileHandler, TimedRotatingFileHandler
 
 
-
 class BaseLogger(object):
     """A base class for logger constructor.
     """
